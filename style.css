@@ -146,3 +146,8 @@ html  {
     .keys:hover .hints {
       opacity: 1;
     }
+
+.jumbotron {
+    margin-left: 3em;
+    margin-right: 3em;
+}

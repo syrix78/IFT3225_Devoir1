@@ -1,31 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr-ca">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" type="image/png" href="img/MusicNote.png">
+        <title>Le jeu des Quintes</title>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="style.css">  
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
 
-
-        <title>Hello, world!</title>
-
-        <!-- Optional JavaScript -->
+        <!-- Optional Bootstrap JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        
-        
-        <script type="text/javascript" src="index.js"></script>
+
+        <!-- Jeu Musical -->
+        <script type="text/javascript" src="game.js"></script>
     </head>
     <body>
-        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="#">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png" width="30" height="30" alt="Bootstrap logo">
+                <img src="img/MusicNote.png" width="30" height="30" alt="Music Note">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,119 +32,120 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Jeu Musical <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
         </nav>
-        
+
         <!-- Main Content -->
         <div class="jumbotron ">
+            <div id="javascriptContent">
+                <p class="h1">Jeu Musical</p>
 
-            <h1>Jeu Musical</h1>
+                <p class="lead">Ceci est le jeu qui ne fonctionne que lorsque Javascript est chargé!</p> 
+                <!-- https://codepen.io/gabrielcarol/full/rGeEbY -->
 
-            <p class="lead">Ceci est le jeu qui ne se charge que lorsque Javascript est chargé!</p>
-            <!-- https://codepen.io/gabrielcarol/full/rGeEbY -->
-
-            <div id="playArea">
-                    <button onclick="start()" id="startButton"> Demarer </button>
+                <div id="playArea">
+                    <button type="button" class="btn btn-primary" onclick="start()" id="startButton"> Demarer </button>
                 </div>
-            <section id="main">
-                
-                <div class="nowplaying"></div>
-                <div class="keys">
-                    <div data-key="65" class="key" data-note="C">
-                        <span class="hints">A</span>
-                    </div>
-                    <div data-key="87" class="key sharp" data-note="C#">
-                        <span class="hints">W</span>
-                    </div>
-                    <div data-key="83" class="key" data-note="D">
-                        <span class="hints">S</span>
-                    </div>
-                    <div data-key="69" class="key sharp" data-note="D#">
-                        <span class="hints">E</span>
-                    </div>
-                    <div data-key="68" class="key" data-note="E">
-                        <span class="hints">D</span>
-                    </div>
-                    <div data-key="70" class="key" data-note="F">
-                        <span class="hints">F</span>
-                    </div>
-                    <div data-key="84" class="key sharp" data-note="F#">
-                        <span class="hints">T</span>
-                    </div>
-                    <div data-key="71" class="key" data-note="G">
-                        <span class="hints">G</span>
-                    </div>
-                    <div data-key="89" class="key sharp" data-note="G#">
-                        <span class="hints">Y</span>
-                    </div>
-                    <div data-key="72" class="key" data-note="A">
-                        <span class="hints">H</span>
-                    </div>
-                    <div data-key="85" class="key sharp" data-note="A#">
-                        <span class="hints">U</span>
-                    </div>
-                    <div data-key="74" class="key" data-note="B">
-                        <span class="hints">J</span>
-                    </div>
-                    <div data-key="75" class="key" data-note="C">
-                        <span class="hints">K</span>
-                    </div>
-                    <div data-key="79" class="key sharp" data-note="C#">
-                        <span class="hints">O</span>
-                    </div>
-                    <div data-key="76" class="key" data-note="D">
-                        <span class="hints">L</span>
-                    </div>
-                    <div data-key="80" class="key sharp" data-note="D#">
-                        <span class="hints">P</span>
-                    </div>
-                    <div data-key="186" class="key" data-note="E">
-                        <span class="hints">;</span>
-                    </div>
-                </div>
+                <br>
+                <section id="main">
 
-                <audio data-key="65" src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"></audio>
-                <audio data-key="87" src="http://carolinegabriel.com/demo/js-keyboard/sounds/041.wav"></audio>
-                <audio data-key="83" src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"></audio>
-                <audio data-key="69" src="http://carolinegabriel.com/demo/js-keyboard/sounds/043.wav"></audio>
-                <audio data-key="68" src="http://carolinegabriel.com/demo/js-keyboard/sounds/044.wav"></audio>
-                <audio data-key="70" src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav"></audio>
-                <audio data-key="84" src="http://carolinegabriel.com/demo/js-keyboard/sounds/046.wav"></audio>
-                <audio data-key="71" src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav"></audio>
-                <audio data-key="89" src="http://carolinegabriel.com/demo/js-keyboard/sounds/048.wav"></audio>
-                <audio data-key="72" src="http://carolinegabriel.com/demo/js-keyboard/sounds/049.wav"></audio>
-                <audio data-key="85" src="http://carolinegabriel.com/demo/js-keyboard/sounds/050.wav"></audio>
-                <audio data-key="74" src="http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav"></audio>
-                <audio data-key="75" src="http://carolinegabriel.com/demo/js-keyboard/sounds/052.wav"></audio>
-                <audio data-key="79" src="http://carolinegabriel.com/demo/js-keyboard/sounds/053.wav"></audio>
-                <audio data-key="76" src="http://carolinegabriel.com/demo/js-keyboard/sounds/054.wav"></audio>
-                <audio data-key="80" src="http://carolinegabriel.com/demo/js-keyboard/sounds/055.wav"></audio>
-                <audio data-key="186" src="http://carolinegabriel.com/demo/js-keyboard/sounds/056.wav"></audio>
-            </section>
+                    <div class="nowplaying"></div>
+                    <div class="keys">
+                        <div data-key="65" class="key" data-note="C">
+                            <span class="hints">A</span>
+                        </div>
+                        <div data-key="87" class="key sharp" data-note="C#">
+                            <span class="hints">W</span>
+                        </div>
+                        <div data-key="83" class="key" data-note="D">
+                            <span class="hints">S</span>
+                        </div>
+                        <div data-key="69" class="key sharp" data-note="D#">
+                            <span class="hints">E</span>
+                        </div>
+                        <div data-key="68" class="key" data-note="E">
+                            <span class="hints">D</span>
+                        </div>
+                        <div data-key="70" class="key" data-note="F">
+                            <span class="hints">F</span>
+                        </div>
+                        <div data-key="84" class="key sharp" data-note="F#">
+                            <span class="hints">T</span>
+                        </div>
+                        <div data-key="71" class="key" data-note="G">
+                            <span class="hints">G</span>
+                        </div>
+                        <div data-key="89" class="key sharp" data-note="G#">
+                            <span class="hints">Y</span>
+                        </div>
+                        <div data-key="72" class="key" data-note="A">
+                            <span class="hints">H</span>
+                        </div>
+                        <div data-key="85" class="key sharp" data-note="A#">
+                            <span class="hints">U</span>
+                        </div>
+                        <div data-key="74" class="key" data-note="B">
+                            <span class="hints">J</span>
+                        </div>
+                        <div data-key="75" class="key" data-note="C">
+                            <span class="hints">K</span>
+                        </div>
+                        <div data-key="79" class="key sharp" data-note="C#">
+                            <span class="hints">O</span>
+                        </div>
+                        <div data-key="76" class="key" data-note="D">
+                            <span class="hints">L</span>
+                        </div>
+                        <div data-key="80" class="key sharp" data-note="D#">
+                            <span class="hints">P</span>
+                        </div>
+                        <div data-key="186" class="key" data-note="E">
+                            <span class="hints">;</span>
+                        </div>
+                    </div>
 
+                    <audio data-key="65" src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"></audio>
+                    <audio data-key="87" src="http://carolinegabriel.com/demo/js-keyboard/sounds/041.wav"></audio>
+                    <audio data-key="83" src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"></audio>
+                    <audio data-key="69" src="http://carolinegabriel.com/demo/js-keyboard/sounds/043.wav"></audio>
+                    <audio data-key="68" src="http://carolinegabriel.com/demo/js-keyboard/sounds/044.wav"></audio>
+                    <audio data-key="70" src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav"></audio>
+                    <audio data-key="84" src="http://carolinegabriel.com/demo/js-keyboard/sounds/046.wav"></audio>
+                    <audio data-key="71" src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav"></audio>
+                    <audio data-key="89" src="http://carolinegabriel.com/demo/js-keyboard/sounds/048.wav"></audio>
+                    <audio data-key="72" src="http://carolinegabriel.com/demo/js-keyboard/sounds/049.wav"></audio>
+                    <audio data-key="85" src="http://carolinegabriel.com/demo/js-keyboard/sounds/050.wav"></audio>
+                    <audio data-key="74" src="http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav"></audio>
+                    <audio data-key="75" src="http://carolinegabriel.com/demo/js-keyboard/sounds/052.wav"></audio>
+                    <audio data-key="79" src="http://carolinegabriel.com/demo/js-keyboard/sounds/053.wav"></audio>
+                    <audio data-key="76" src="http://carolinegabriel.com/demo/js-keyboard/sounds/054.wav"></audio>
+                    <audio data-key="80" src="http://carolinegabriel.com/demo/js-keyboard/sounds/055.wav"></audio>
+                    <audio data-key="186" src="http://carolinegabriel.com/demo/js-keyboard/sounds/056.wav"></audio>
+                </section>
 
-            <hr>
+            </div>
 
+            <noscript>
+                <hr>
+                <p class="h1">Connaissances</p>
+                <p class="lead">Pour jouer au jeu, veuillez activer JavaScript! Vous trouverez ci-dessous le tableau du Cycle des Quintes. </p>
+                <img src="img/Quintes.PNG" class="img-fluid" alt="Cycle des Quintes">
+                <a href="https://fr.wikipedia.org/wiki/Tonalit%C3%A9_relative" class="btn btn-secondary active" role="button" aria-pressed="true">Source</a>
 
-            <h1>Connaissances</h1>
+            </noscript>
 
         </div>
 
 
-
-
         <footer class="footer mt-auto py-3">
             <div class="container">
-                <span class="text-muted">Lucas Hornung(20092127)----Francois Marchand</span>
+                <span class="text-muted">Copyright &copy; 2020 Lucas Hornung----Francois Marchand</span>
             </div>
         </footer>
 
-        
+
     </body>
 </html>
